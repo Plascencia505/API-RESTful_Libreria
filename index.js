@@ -13,6 +13,10 @@ app.use(express.json()); // Para parsear application/json
 app.use(express.urlencoded({ extended: true })); // Para parsear application/x-www-form-urlencoded
 app.use(cookieParser()); // Para leer y enviar la cookie del JWT
 
+app.use('/api/sesiones', require('./routes/sesiones'));
+app.use('/api/empleados', require('./routes/empleados'));
+app.use('/api/libros', require('./routes/libros'));
+
 // Ruta de prueba básica
 app.get('/api/health', (req, res) => {
   res.status(200).json({ status: 'API funcionando correctamente' });
